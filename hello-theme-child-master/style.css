@@ -1,0 +1,137 @@
+/* 
+Theme Name: Hello Elementor Child
+Theme URI: https://github.com/elementor/hello-theme/
+Description: Hello Elementor Child is a child theme of Hello Elementor, created by Elementor team
+Author: Elementor Team
+Author URI: https://elementor.com/
+Template: hello-elementor
+Version: 1.0.1
+Text Domain: hello-elementor-child
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+
+/*
+    Add your custom styles here
+*/
+
+/* HEADER PRIMARY NAV STYLINGS */ 
+@media only screen and (max-width: 1608px) and (min-width: 1302px) {
+    .nav-menu nav ul li a {
+        font-size: 19px !important; 
+    }
+}
+
+/***
+* class: .sticky-header
+*/
+header.sticky-header {
+	--header-height: 140px;
+	--shrink-header-to: 0.1;
+	--transition: .45s cubic-bezier(.4, 0, .2, 1);
+	background-color: white;
+	transition: background-color var(--transition),
+				backdrop-filter var(--transition),
+				box-shadow var(--transition);
+}
+
+
+/***
+* Sticky header activated
+*/
+header.sticky-header.elementor-sticky--effects {
+	background-color: white; 
+}
+header.sticky-header > .elementor-container {
+	min-height: var(--header-height);
+	transition: min-height var(--transition);
+}
+header.sticky-header.elementor-sticky--effects > .elementor-container {
+	min-height: calc( var(--header-height) * var(--shrink-header-to) );
+}
+
+header.sticky-header.elementor-sticky--effects .secondary-menu {
+	display: none !important; 
+}
+
+/***
+* class: .logo
+*/
+header.sticky-header .logo img {
+	transition: transform var(--transition);
+}
+header.sticky-header.elementor-sticky--effects .logo img {
+	transform: scale(.6);
+}
+
+
+/* HERO SLIDER STYLINGS */ 
+
+.hero-slider .swiper-pagination-bullet {
+    width: 100px !important; 
+    height: 4px !important; 
+    border-radius: 10px !important;
+    background: white !important; 
+}
+
+.hero-slider .swiper-pagination-bullet-active {
+    width: 150px !important; 
+}
+
+.hero-slider .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: 30px !important; 
+}
+
+@media only screen and (max-width: 768px) {
+    .hero-slider .swiper-pagination-bullet {
+        width: 50px !important; 
+    }
+
+    .hero-slider .swiper-pagination-bullet-active {
+        width: 75px !important; 
+    }
+}
+
+/* SPONSER CAROUSEL SLIDER STYLINGS */ 
+.sponser-slider .swiper-pagination-bullet {
+    width: 50px !important; 
+    height: 4px !important; 
+    border-radius: 10px !important;
+    background: #022F48 !important; 
+}
+
+.sponser-slider .swiper-pagination-bullet-active {
+    width: 100px !important; 
+}
+
+.sponser-slider .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: -30px !important; 
+}
+
+@media only screen and (max-width: 768px) {
+    .sponser-slider .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+        bottom: -10px !important; 
+    }
+
+    .sponser-slider .swiper-pagination-bullet {
+        width: 20px !important; 
+    }
+
+    .sponser-slider .swiper-pagination-bullet-active {
+        width: 40px !important; 
+    }
+}
+
+/* FOOTER NAV LIST STYLINGS */ 
+
+.footer-list-underline ul li a span:hover {
+    text-decoration: underline;
+}
+
+
+/* EVENT POSTS */ 
+
+.event-posts .elementor-section-boxed {
+    height: 100%; 
+}
