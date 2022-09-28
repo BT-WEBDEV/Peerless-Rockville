@@ -102,6 +102,16 @@ function news_loop_newsroom_new_releases_shortcode( $atts ) {
 }
 add_shortcode( 'news_loop_newsroom_new_releases_output', 'news_loop_newsroom_new_releases_shortcode');
 
+////////////// EXHIBITS LOOP SHORTCODES ///////////////////
+
+// NEWS LOOP NEWSROOM
+function exhibits_shortcode( $atts ) {
+	ob_start();
+    include get_template_directory() . '/template-parts/exhibits-loop.php';
+	return ob_get_clean();
+}
+add_shortcode( 'exhibits_output', 'exhibits_shortcode');
+
 
 //////////// NEWSROOM LOAD MORE ADVOCACY SCRIPT //////////////// 
 function misha_my_load_more_scripts() {
