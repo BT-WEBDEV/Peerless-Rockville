@@ -152,7 +152,7 @@
         <div class="empty-exhibits-post" style="display:none"></div> 
     </div>
     <?php
-    if ($exhibits_posts->max_num_pages > 1 || $exhibits_posts->max_num_pages > 1)
+    if ($exhibits_posts->max_num_pages > 1)
         include get_template_directory() . '/template-parts/buttons/exhibits-read-more-button.php';
     ?>
 </div>

@@ -321,6 +321,6 @@
     </div>         
 </div>
 <?php
-    if ($news_posts_new_releases->max_num_pages > 1 || $sidebar_news_posts->max_num_pages > 1)
+    if ($news_posts_new_releases->max_num_pages > 1)
         include get_template_directory() . '/template-parts/buttons/newsroom-new-releases-button.php';
 ?>   
