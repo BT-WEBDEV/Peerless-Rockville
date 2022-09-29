@@ -185,44 +185,44 @@ add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax
 
 
 
-//////////// NEWSROOM LOAD MORE NEW RELEASES SCRIPT //////////////// 
-function new_releases_load_more_scripts() { 
+//////////// EXHIBITS LOAD MORE NEW RELEASES SCRIPT //////////////// 
+function exhibits_load_more_scripts() { 
 	$args = array(  
-		'post_type' => 'post',
-		'post_status' => 'publish',
-		'orderby' => 'date',
-		'order' => 'DESC',
-		'posts_per_page' => 6,
-		'category__not_in' => 26,
+		'post_type' => 'exhibits',
+        'post_status' => 'publish',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'posts_per_page' => 3,
 	);
 
-	$news_posts_new_releases = new WP_Query($args);
+	$exhibits_posts = new WP_Query($args);
  
 	// In most cases it is already included on the page and this line can be removed
 	wp_enqueue_script('jquery');
  
 	// register our main script but do not enqueue it yet
-	wp_register_script( 'new_releases_loadmore', get_stylesheet_directory_uri() . '/new-releases-loadmore.js', array('jquery') );
+	wp_register_script( 'exhibits_loadmore', get_stylesheet_directory_uri() . '/exhibits-loadmore.js', array('jquery') );
  
 	// now the most interesting part
 	// we have to pass parameters to myloadmore.js script but we can get the parameters values only in PHP
 	// you can define variables directly in your HTML but I decided that the most proper way is wp_localize_script()
-	wp_localize_script( 'new_releases_loadmore', 'new_releases_loadmore_params', array(
+	wp_localize_script( 'exhibits_loadmore', 'exhibits_loadmore_params', array(
 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
-		'posts' => json_encode( $news_posts_new_releases->query_vars ), // everything about your loop is here
+		'posts' => json_encode( $exhibits_posts->query_vars ), // everything about your loop is here
 		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
-		'max_page' => $news_posts_new_releases->max_num_pages
+		'max_page' => $exhibits_posts->max_num_pages
 	) );
  
- 	wp_enqueue_script( 'new_releases_loadmore' );
+ 	wp_enqueue_script( 'exhibits_loadmore' );
 
 }
 
-add_action( 'wp_enqueue_scripts', 'new_releases_load_more_scripts' );
+add_action( 'wp_enqueue_scripts', 'exhibits_load_more_scripts' );
 
 
-//////////// NEWSROOM LOAD MORE NEW RELEASES AJAX HANDLER //////////////// 
-function new_releases_loadmore_ajax_handler(){
+
+//////////// EXHIBITS LOAD MORE NEW RELEASES AJAX HANDLER //////////////// 
+function exhibits_loadmore_ajax_handler(){
  
 	// prepare our arguments for the query
 	$args = json_decode( stripslashes( $_POST['query'] ), true );
@@ -242,15 +242,16 @@ function new_releases_loadmore_ajax_handler(){
 			//get_template_part( 'news-loop-newsroom-card.php',);
 			// for the test purposes comment the line above and uncomment the below one
 			//the_title();
-			include get_template_directory() . '/template-parts/cards/new-releases-newsroom-card.php';
- 
+			include get_template_directory() . '/template-parts/cards/exhibits-card.php';  
+  
  
 		endwhile;
  
-	endif;
-	die; // here we exit the script and even no wp_reset_query() required!
+	endif; 
+	die;
 }
  
-add_action('wp_ajax_loadmore', 'new_releases_loadmore_ajax_handler'); // wp_ajax_{action}
-add_action('wp_ajax_nopriv_loadmore', 'new_releases_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
+add_action('wp_ajax_loadmore', 'exhibits_loadmore_ajax_handler'); // wp_ajax_{action}
+add_action('wp_ajax_nopriv_loadmore', 'exhibits_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
+
 
