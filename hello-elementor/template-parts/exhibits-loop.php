@@ -129,7 +129,7 @@
 </style>
 
 <div class="exhibits-container"> 
-    <div class="container"> 
+    <div class="container exhibits-posts-container"> 
     <?php 
         $args = array(  
             'post_type' => 'exhibits',
