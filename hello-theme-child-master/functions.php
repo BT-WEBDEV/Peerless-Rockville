@@ -132,7 +132,10 @@ add_shortcode( 'exhibits_output', 'exhibits_shortcode');
 // AJAX HANDLERS 
 //======================================================================
 
-/// AJAX HANLDER FOR EXHIBITS PAGE LOAD MORE BUTTON /// 
+//-----------------------------------------------------
+// EXHIBITS LOAD MORE (Exhibits Page)
+//-----------------------------------------------------
+
 function exhibits_load_more() {
 	$ajaxposts = new WP_Query([
 		'post_type' => 'exhibits',
@@ -169,8 +172,9 @@ add_action('wp_ajax_nopriv_exhibits_load_more', 'exhibits_load_more');
 
 
 
-
-/// AJAX HANLDER FOR NEWSROOM PAGE ADVOCACY LOAD MORE BUTTON /// 
+//-----------------------------------------------------
+// ADVOCACY LOAD MORE (Newsroom Page)
+//-----------------------------------------------------
 function advocacy_load_more() {
 	$ajaxposts = new WP_Query([
 		'post_type' => 'post',
@@ -208,12 +212,9 @@ add_action('wp_ajax_nopriv_advocacy_load_more', 'advocacy_load_more');
 
 
 
-
-
-
-
-
-/// AJAX HANLDER FOR NEWSROOM PAGE NEW RELEASES LOAD MORE BUTTON /// 
+//-----------------------------------------------------
+// NEW RELEASES LOAD MORE (Newsroom Page)
+//-----------------------------------------------------
 function new_releases_load_more() {
 	$ajaxposts = new WP_Query([
 		'post_type' => 'post',
@@ -248,290 +249,3 @@ function new_releases_load_more() {
 }
 add_action('wp_ajax_new_releases_load_more', 'new_releases_load_more'); 
 add_action('wp_ajax_nopriv_new_releases_load_more', 'new_releases_load_more');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //////////// EXHIBITS LOAD MORE EXHIBITS SCRIPT ////////////////
-// function exhibits_load_more_scripts() {
-	
-// 	$args = array(  
-// 		'post_type' => 'exhibits',
-//         'post_status' => 'publish',
-//         'orderby' => 'date',
-//         'order' => 'DESC',
-//         'posts_per_page' => 3, 
-// 	);
-
-// 	$exhibit_posts = new WP_Query($args);
- 
-// 	// In most cases it is already included on the page and this line can be removed
-// 	wp_enqueue_script('jquery');
- 
-// 	// register our main script but do not enqueue it yet
-// 	wp_register_script( 'exhibits_loadmore', get_stylesheet_directory_uri() . '/exhibits-loadmore.js', array('jquery') );
- 
-// 	// now the most interesting part
-// 	// we have to pass parameters to myloadmore.js script but we can get the parameters values only in PHP
-// 	// you can define variables directly in your HTML but I decided that the most proper way is wp_localize_script()
-// 	wp_localize_script( 'exhibits_loadmore', 'exhibits_loadmore_params', array(
-// 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
-// 		'posts' => json_encode( $exhibit_posts->query_vars ), // everything about your loop is here
-// 		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
-// 		'max_page' => $exhibit_posts->max_num_pages
-// 	) );
- 
-//  	wp_enqueue_script( 'exhibits_loadmore' );
-
-// }
- 
-// add_action( 'wp_enqueue_scripts', 'exhibits_load_more_scripts' );
-
-// //////////// EXHIBITS LOAD MORE EXHIBITS AJAX HANDLER //////////////////////////
-
-// function exhibits_loadmore_ajax_handler(){
-	
-// 		// prepare our arguments for the query
-// 		$exhibitArgs = json_decode( stripslashes( $_POST['query'] ), true );
-// 		$exhibitArgs['paged'] = $_POST['page'] + 1; // we need next page to be loaded
-// 		$exhibitArgs['post_status'] = 'publish';
-	
-// 		// it is always better to use WP_Query but not here
-// 		query_posts( $exhibitArgs );
-	
-// 		if( have_posts()) :
-	
-// 			// run the loop
-// 			while( have_posts() ): the_post();
-	
-// 				// look into your theme code how the posts are inserted, but you can use your own HTML of course
-// 				// do you remember? - my example is adapted for Twenty Seventeen theme
-// 				//get_template_part( 'news-loop-newsroom-card.php',);
-// 				// for the test purposes comment the line above and uncomment the below one
-// 				//the_title();
-				
-// 					include get_template_directory() . '/template-parts/cards/exhibits-card.php';
-
-	
-// 			endwhile;
-	
-// 		endif;
-// 		die; // here we exit the script and even no wp_reset_query() required!
-	
-// }
- 
-// add_action('wp_ajax_loadmore', 'exhibits_loadmore_ajax_handler'); // wp_ajax_{action}
-// add_action('wp_ajax_nopriv_loadmore', 'exhibits_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // //////////// NEWSROOM LOAD MORE ADVOCACY SCRIPT //////////////// 
-// function misha_my_load_more_scripts() {
-
-// 	$args = array(  
-// 		'post_type' => 'post',
-// 		'post_status' => 'publish',
-// 		'orderby' => 'date',
-// 		'order' => 'DESC',
-// 		'category__in' => 27,
-// 		'posts_per_page' => 3,
-// 	);
-
-// 	$news_posts_home = new WP_Query($args);
-
-// 	// In most cases it is already included on the page and this line can be removed
-// 	wp_enqueue_script('jquery');
-
-// 	// register our main script but do not enqueue it yet
-// 	wp_register_script( 'my_loadmore', get_stylesheet_directory_uri() . '/myloadmore.js', array('jquery') );
-
-// 	// now the most interesting part
-// 	// we have to pass parameters to myloadmore.js script but we can get the parameters values only in PHP
-// 	// you can define variables directly in your HTML but I decided that the most proper way is wp_localize_script()
-// 	wp_localize_script( 'my_loadmore', 'misha_loadmore_params', array(
-// 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
-// 		'posts' => json_encode( $news_posts_home->query_vars ), // everything about your loop is here
-// 		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
-// 		'max_page' => $news_posts_home->max_num_pages
-// 	) );
-
-// 	wp_enqueue_script( 'my_loadmore' );
-
-// }
- 
-// add_action( 'wp_enqueue_scripts', 'misha_my_load_more_scripts' );
-
-
-
-// //////////// NEWSROOM LOAD MORE ADVOCACY AJAX HANDLER //////////////// 
-// function misha_loadmore_ajax_handler(){
-
-// 		// prepare our arguments for the query
-// 		$newsArgs = json_decode( stripslashes( $_POST['query'] ), true );
-// 		$newsArgs['paged'] = $_POST['page'] + 1; // we need next page to be loaded
-// 		$newsArgs['post_status'] = 'publish';
-	
-// 		// it is always better to use WP_Query but not here
-// 		query_posts( $newsArgs );
-	
-// 		if( have_posts() ) :
-	
-// 			// run the loop
-// 			while( have_posts() ): the_post();
-	
-// 				// look into your theme code how the posts are inserted, but you can use your own HTML of course
-// 				// do you remember? - my example is adapted for Twenty Seventeen theme
-// 				//get_template_part( 'news-loop-newsroom-card.php',);
-// 				// for the test purposes comment the line above and uncomment the below one
-// 				//the_title();
-// 				include get_template_directory() . '/template-parts/cards/news-loop-newsroom-card.php';
-	
-	
-// 			endwhile;
-	
-// 		endif;
-// 		die; // here we exit the script and even no wp_reset_query() required!
-// }
- 
-// add_action('wp_ajax_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_{action}
-// add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //////////// NEWSROOM LOAD MORE NEW RELEASES SCRIPT //////////////// 
-// function new_releases_load_more_scripts() { 
-	
-// 	$args = array(  
-// 		'post_type' => 'post',
-// 		'post_status' => 'publish',
-// 		'orderby' => 'date',
-// 		'order' => 'DESC',
-// 		'posts_per_page' => 6,
-// 		'category__not_in' => 26,
-// 	);
-
-// 	$news_posts_new_releases = new WP_Query($args);
-
-// 	// In most cases it is already included on the page and this line can be removed
-// 	wp_enqueue_script('jquery');
-
-// 	// register our main script but do not enqueue it yet
-// 	wp_register_script( 'new_releases_loadmore', get_stylesheet_directory_uri() . '/new-releases-loadmore.js', array('jquery') );
-
-// 	// now the most interesting part
-// 	// we have to pass parameters to myloadmore.js script but we can get the parameters values only in PHP
-// 	// you can define variables directly in your HTML but I decided that the most proper way is wp_localize_script()
-// 	wp_localize_script( 'new_releases_loadmore', 'new_releases_loadmore_params', array(
-// 		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php', // WordPress AJAX
-// 		'posts' => json_encode( $news_posts_new_releases->query_vars ), // everything about your loop is here
-// 		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
-// 		'max_page' => $news_posts_new_releases->max_num_pages
-// 	) );
-
-// 	wp_enqueue_script( 'new_releases_loadmore' );
-			
-// }
-
-// add_action( 'wp_enqueue_scripts', 'new_releases_load_more_scripts' );
-
-
-// //////////// NEWSROOM LOAD MORE NEW RELEASES AJAX HANDLER //////////////// 
-// function new_releases_loadmore_ajax_handler(){
-
-// 		// prepare our arguments for the query
-// 		$newReleaseArgs = json_decode( stripslashes( $_POST['query'] ), true );
-// 		$newReleaseArgs['paged'] = $_POST['page'] + 1; // we need next page to be loaded
-// 		$newReleaseArgs['post_status'] = 'publish';
-	
-// 		// it is always better to use WP_Query but not here
-// 		query_posts( $newReleaseArgs );
-	
-// 		if( have_posts() ) :
-	
-// 			// run the loop
-// 			while( have_posts() ): the_post();
-	
-// 				// look into your theme code how the posts are inserted, but you can use your own HTML of course
-// 				// do you remember? - my example is adapted for Twenty Seventeen theme
-// 				//get_template_part( 'news-loop-newsroom-card.php',);
-// 				// for the test purposes comment the line above and uncomment the below one
-// 				//the_title();
-// 				include get_template_directory() . '/template-parts/cards/new-releases-newsroom-card.php';
-	
-	
-// 			endwhile;
-	
-// 		endif;
-// 		die; // here we exit the script and even no wp_reset_query() required!
-
-// }
- 
-// add_action('wp_ajax_loadmore', 'new_releases_loadmore_ajax_handler'); // wp_ajax_{action}
-// add_action('wp_ajax_nopriv_loadmore', 'new_releases_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
-
