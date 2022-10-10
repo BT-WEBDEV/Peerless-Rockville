@@ -267,7 +267,7 @@
     <div class="new-releases-left-container"> 
 
         <div class="container">
-            <div class="row new-releases-wrapper"> 
+            <div class="row new-releases-wrapper new-releases-posts-container"> 
                 <?php 
                 $args = array(  
                     'post_type' => 'post',
@@ -287,7 +287,6 @@
 
                     endwhile; wp_reset_postdata(); ?> 
 
-                <div class="empty-new-release-post" style="display:none"></div> 
             </div>
         </div>
     </div>

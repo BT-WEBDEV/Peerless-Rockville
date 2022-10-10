@@ -159,7 +159,7 @@
 
 
 <div class="container">
-    <div class="row news-wrapper"> 
+    <div class="row news-wrapper advocacy-posts-container"> 
         <?php 
         $args = array(  
             'post_type' => 'post',

@@ -1,3 +1,5 @@
+<!-- USED ON SINGLE POSTS --> 
+
 <style> 
 .news-wrapper {
     display: grid;
