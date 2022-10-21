@@ -28,18 +28,18 @@ add_action( 'wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts', 20 );
 // EVENTS LOOP SHORTCODES
 //======================================================================
 
-// EVENTS LOOP HOME PAGE 
+// EVENTS LOOP - home page 
 function events_loop_home_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/events-loop-home.php';
+    include get_template_directory() . '/template-parts/loops/events/events-loop-home.php';
 	return ob_get_clean();
 }
 add_shortcode( 'events_loop_home_output', 'events_loop_home_shortcode');
 
-// EVENTS LOOP THINGS TO DO PAGE
+// EVENTS LOOP - /things-to-do/ 
 function events_loop_thingstodo_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/events-loop-thingstodo.php';
+    include get_template_directory() . '/template-parts/loops/events/events-loop-thingstodo.php';
 	return ob_get_clean();
 }
 add_shortcode( 'events_loop_thingstodo_output', 'events_loop_thingstodo_shortcode');
@@ -47,7 +47,7 @@ add_shortcode( 'events_loop_thingstodo_output', 'events_loop_thingstodo_shortcod
 // EVENTS LOOP ROCKVILLE HISTORY PAGE
 function events_loop_rockville_history_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/events-loop-rockville-history.php';
+    include get_template_directory() . '/template-parts/loops/events/events-loop-rockville-history.php';
 	return ob_get_clean();
 }
 add_shortcode( 'events_loop_rockville_history_output', 'events_loop_rockville_history_shortcode');
@@ -56,7 +56,7 @@ add_shortcode( 'events_loop_rockville_history_output', 'events_loop_rockville_hi
 // EVENTS LOOP EVENTS SINGLE POST
 function events_loop_events_single_post_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/events-loop-events-single-post.php';
+    include get_template_directory() . '/template-parts/loops/events/events-loop-events-single-post.php';
 	return ob_get_clean();
 }
 add_shortcode( 'events_loop_events_single_post_output', 'events_loop_events_single_post_shortcode');
@@ -72,7 +72,7 @@ add_shortcode( 'events_loop_events_single_post_output', 'events_loop_events_sing
 // NEWS LOOP HOME PAGE
 function news_loop_home_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/news-loop-home.php';
+    include get_template_directory() . '/template-parts/loops/news/news-loop-home.php';
 	return ob_get_clean();
 }
 add_shortcode( 'news_loop_home_output', 'news_loop_home_shortcode');
@@ -81,7 +81,7 @@ add_shortcode( 'news_loop_home_output', 'news_loop_home_shortcode');
 // NEWS LOOP ROCKVILLE HISTORY
 function news_loop_rockville_history_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/news-loop-rockville-history.php';
+    include get_template_directory() . '/template-parts/loops/news/news-loop-rockville-history.php';
 	return ob_get_clean();
 }
 add_shortcode( 'news_loop_rockville_history_output', 'news_loop_rockville_history_shortcode');
@@ -89,7 +89,7 @@ add_shortcode( 'news_loop_rockville_history_output', 'news_loop_rockville_histor
 // NEWS LOOP NEWS SINGLE POST
 function news_loop_news_single_post_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/news-loop-news-single-post.php';
+    include get_template_directory() . '/template-parts/loops/news/news-loop-news-single-post.php';
 	return ob_get_clean();
 }
 add_shortcode( 'news_loop_news_single_post_output', 'news_loop_news_single_post_shortcode');
@@ -97,7 +97,7 @@ add_shortcode( 'news_loop_news_single_post_output', 'news_loop_news_single_post_
 // NEWS LOOP NEWSROOM
 function news_loop_newsroom_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/news-loop-advocacy-newsroom.php';
+    include get_template_directory() . '/template-parts/loops/news/news-loop-advocacy-newsroom.php';
 	return ob_get_clean();
 }
 add_shortcode( 'news_loop_newsroom_output', 'news_loop_newsroom_shortcode');
@@ -105,7 +105,7 @@ add_shortcode( 'news_loop_newsroom_output', 'news_loop_newsroom_shortcode');
 // NEWS LOOP NEWSROOM
 function news_loop_newsroom_new_releases_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/news-loop-newsrooom-new-releases.php';
+    include get_template_directory() . '/template-parts/loops/news/news-loop-newsrooom-new-releases.php';
 	return ob_get_clean();
 }
 add_shortcode( 'news_loop_newsroom_new_releases_output', 'news_loop_newsroom_new_releases_shortcode');
@@ -117,13 +117,29 @@ add_shortcode( 'news_loop_newsroom_new_releases_output', 'news_loop_newsroom_new
 // EXHIBITS LOOP SHORTCODES
 //======================================================================
 
-// NEWS LOOP NEWSROOM
+// EXHIBITS LOOP  - /exhibits/
 function exhibits_shortcode( $atts ) {
 	ob_start();
-    include get_template_directory() . '/template-parts/exhibits-loop.php';
+    include get_template_directory() . '/template-parts/loops/exhibits/exhibits-loop.php';
 	return ob_get_clean();
 }
 add_shortcode( 'exhibits_output', 'exhibits_shortcode');
+
+
+
+
+
+//======================================================================
+// PRODUCTS LOOP SHORTCODES
+//======================================================================
+
+// FEATURED PRODUCTS LOOP - /peerless-shop/ 
+function featured_products_shortcode( $atts ) {
+	ob_start();
+    include get_template_directory() . '/template-parts/loops/products/featured-products-loop.php';
+	return ob_get_clean();
+}
+add_shortcode( 'featured_products_output', 'featured_products_shortcode');
 
 
 
