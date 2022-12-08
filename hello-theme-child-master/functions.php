@@ -141,7 +141,45 @@ function featured_products_shortcode( $atts ) {
 }
 add_shortcode( 'featured_products_output', 'featured_products_shortcode');
 
+// BOOKS PRODUCTS LOOP - /peerless-shop/ 
+function book_products_shortcode( $atts ) {
+	ob_start();
+    include get_template_directory() . '/template-parts/loops/products/book-products-loop.php';
+	return ob_get_clean();
+}
+add_shortcode( 'book_products_output', 'book_products_shortcode');
 
+// CLOTHING PRODUCTS LOOP - /peerless-shop/ 
+function clothing_products_shortcode( $atts ) {
+	ob_start();
+    include get_template_directory() . '/template-parts/loops/products/clothing-products-loop.php';
+	return ob_get_clean();
+}
+add_shortcode( 'clothing_products_output', 'clothing_products_shortcode'); 
+
+// BAG PRODUCTS LOOP - /peerless-shop/ 
+function bag_products_shortcode( $atts ) {
+	ob_start();
+    include get_template_directory() . '/template-parts/loops/products/bag-products-loop.php';
+	return ob_get_clean();
+}
+add_shortcode( 'bag_products_output', 'bag_products_shortcode'); 
+
+// ORNAMENT PRODUCTS LOOP - /peerless-shop/ 
+function ornament_products_shortcode( $atts ) {
+	ob_start();
+    include get_template_directory() . '/template-parts/loops/products/ornament-products-loop.php';
+	return ob_get_clean();
+}
+add_shortcode( 'ornament_products_output', 'ornament_products_shortcode'); 
+
+// MISC PRODUCTS LOOP - /peerless-shop/ 
+function misc_products_shortcode( $atts ) {
+	ob_start();
+    include get_template_directory() . '/template-parts/loops/products/misc-products-loop.php';
+	return ob_get_clean();
+}
+add_shortcode( 'misc_products_output', 'misc_products_shortcode');
 
 
 //======================================================================
@@ -265,3 +303,196 @@ function new_releases_load_more() {
 }
 add_action('wp_ajax_new_releases_load_more', 'new_releases_load_more'); 
 add_action('wp_ajax_nopriv_new_releases_load_more', 'new_releases_load_more');
+
+//-----------------------------------------------------
+// BOOK PRODUCTS LOAD MORE (Peerless Shop Page)
+//-----------------------------------------------------
+function book_products_load_more() {
+	$ajaxposts = new WP_Query([
+		'post_type' => 'product',
+		'orderby' => 'date',
+		'order' => 'DESC',
+		'product_cat' => 'books', 
+		'posts_per_page' => 4,
+		'paged' => $_POST['paged'],
+	]);
+
+	$response = '';
+	$max_pages = $ajaxposts->max_num_pages;
+
+	if($ajaxposts->have_posts()) {
+		ob_start();
+		while($ajaxposts->have_posts()) : $ajaxposts->the_post();
+			$response .= include get_template_directory() . '/template-parts/cards/book-products-card.php';
+		//$response .= get_template_part('parts/card', 'publication');
+		endwhile;
+		$output = ob_get_contents();
+		ob_end_clean();
+	} else {
+		$response = '';
+	}
+
+	$result = [
+		'max' => $max_pages,
+		'html' => $output,
+		];
+	echo json_encode($result);
+	exit;
+}
+add_action('wp_ajax_book_products_load_more', 'book_products_load_more'); 
+add_action('wp_ajax_nopriv_book_products_load_more', 'book_products_load_more');
+
+
+//-----------------------------------------------------
+// CLOTHING PRODUCTS LOAD MORE (Peerless Shop Page)
+//-----------------------------------------------------
+function clothing_products_load_more() {
+	$ajaxposts = new WP_Query([
+		'post_type' => 'product',
+		'orderby' => 'date',
+		'order' => 'DESC',
+		'product_cat' => 'clothing', 
+		'posts_per_page' => 4,
+		'paged' => $_POST['paged'],
+	]);
+
+	$response = '';
+	$max_pages = $ajaxposts->max_num_pages;
+
+	if($ajaxposts->have_posts()) {
+		ob_start();
+		while($ajaxposts->have_posts()) : $ajaxposts->the_post();
+			$response .= include get_template_directory() . '/template-parts/cards/clothing-products-card.php';
+		//$response .= get_template_part('parts/card', 'publication');
+		endwhile;
+		$output = ob_get_contents();
+		ob_end_clean();
+	} else {
+		$response = '';
+	}
+
+	$result = [
+		'max' => $max_pages,
+		'html' => $output,
+		];
+	echo json_encode($result);
+	exit;
+}
+add_action('wp_ajax_clothing_products_load_more', 'clothing_products_load_more'); 
+add_action('wp_ajax_nopriv_clothing_products_load_more', 'clothing_products_load_more');
+
+
+//-----------------------------------------------------
+// BAG PRODUCTS LOAD MORE (Peerless Shop Page)
+//-----------------------------------------------------
+function bag_products_load_more() {
+	$ajaxposts = new WP_Query([
+		'post_type' => 'product',
+		'orderby' => 'date',
+		'order' => 'DESC',
+		'product_cat' => 'bags', 
+		'posts_per_page' => 4,
+		'paged' => $_POST['paged'],
+	]);
+
+	$response = '';
+	$max_pages = $ajaxposts->max_num_pages;
+
+	if($ajaxposts->have_posts()) {
+		ob_start();
+		while($ajaxposts->have_posts()) : $ajaxposts->the_post();
+			$response .= include get_template_directory() . '/template-parts/cards/bag-products-card.php';
+		//$response .= get_template_part('parts/card', 'publication');
+		endwhile;
+		$output = ob_get_contents();
+		ob_end_clean();
+	} else {
+		$response = '';
+	}
+
+	$result = [
+		'max' => $max_pages,
+		'html' => $output,
+		];
+	echo json_encode($result);
+	exit;
+}
+add_action('wp_ajax_bag_products_load_more', 'bag_products_load_more'); 
+add_action('wp_ajax_nopriv_bag_products_load_more', 'bag_products_load_more');
+
+//-----------------------------------------------------
+// ORNAMENTS PRODUCTS LOAD MORE (Peerless Shop Page)
+//-----------------------------------------------------
+function ornament_products_load_more() {
+	$ajaxposts = new WP_Query([
+		'post_type' => 'product',
+		'orderby' => 'date',
+		'order' => 'DESC',
+		'product_cat' => 'ornaments', 
+		'posts_per_page' => 4,
+		'paged' => $_POST['paged'],
+	]);
+
+	$response = '';
+	$max_pages = $ajaxposts->max_num_pages;
+
+	if($ajaxposts->have_posts()) {
+		ob_start();
+		while($ajaxposts->have_posts()) : $ajaxposts->the_post();
+			$response .= include get_template_directory() . '/template-parts/cards/ornament-products-card.php';
+		//$response .= get_template_part('parts/card', 'publication');
+		endwhile;
+		$output = ob_get_contents();
+		ob_end_clean();
+	} else {
+		$response = '';
+	}
+
+	$result = [
+		'max' => $max_pages,
+		'html' => $output,
+		];
+	echo json_encode($result);
+	exit;
+}
+add_action('wp_ajax_ornament_products_load_more', 'ornament_products_load_more'); 
+add_action('wp_ajax_nopriv_ornament_products_load_more', 'ornament_products_load_more');
+
+
+//-----------------------------------------------------
+// MISC PRODUCTS LOAD MORE (Peerless Shop Page)
+//-----------------------------------------------------
+function misc_products_load_more() {
+	$ajaxposts = new WP_Query([
+		'post_type' => 'product',
+		'orderby' => 'date',
+		'order' => 'DESC',
+		'product_cat' => 'uncategorized', 
+		'posts_per_page' => 4,
+		'paged' => $_POST['paged'],
+	]);
+
+	$response = '';
+	$max_pages = $ajaxposts->max_num_pages;
+
+	if($ajaxposts->have_posts()) {
+		ob_start();
+		while($ajaxposts->have_posts()) : $ajaxposts->the_post();
+			$response .= include get_template_directory() . '/template-parts/cards/misc-products-card.php';
+		//$response .= get_template_part('parts/card', 'publication');
+		endwhile;
+		$output = ob_get_contents();
+		ob_end_clean();
+	} else {
+		$response = '';
+	}
+
+	$result = [
+		'max' => $max_pages,
+		'html' => $output,
+		];
+	echo json_encode($result);
+	exit;
+}
+add_action('wp_ajax_misc_products_load_more', 'misc_products_load_more'); 
+add_action('wp_ajax_nopriv_misc_products_load_more', 'misc_products_load_more');

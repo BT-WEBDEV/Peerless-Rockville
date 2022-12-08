@@ -16,6 +16,18 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     Add your custom styles here
 */
 
+.link-color-red {
+    color: #AE5D57; 
+}
+
+.link-color-blue {
+    color: #022F48; 
+}
+
+.link-color-green {
+    color: #587045; 
+} 
+
 /* HEADER PRIMARY NAV STYLINGS */ 
 @media only screen and (max-width: 1608px) and (min-width: 1302px) {
     .nav-menu nav ul li a {
