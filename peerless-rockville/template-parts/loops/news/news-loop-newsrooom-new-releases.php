@@ -97,9 +97,13 @@
     color: var( --e-global-color-6e121aa );
     background-color: #58704500;
     border-style: solid;
-    border-width: 0px 0px 1px 0px;
+    border-width: 0px 0px 0px 0px;
     border-radius: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
+}
+
+.new-release-post .elementor-button-text { 
+    border-bottom: 1px solid; 
 }
 
 .elementor-button-text {

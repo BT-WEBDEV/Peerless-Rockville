@@ -28,11 +28,14 @@
     color: white;
     background-color: #58704500;
     border-style: solid;
-    border-width: 0px 0px 1px 0px;
+    border-width: 0px 0px 0px 0px;
     border-radius: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
 }
 
+.heading-wrapper .elementor-button-text { 
+    border-bottom: 1px solid;
+}
 
 .events-wrapper {
     display: grid;
@@ -139,9 +142,13 @@
     color: var( --e-global-color-6e121aa );
     background-color: #58704500;
     border-style: solid;
-    border-width: 0px 0px 1px 0px;
+    border-width: 0px 0px 0px 0px;
     border-radius: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
+}
+
+.event-post .elementor-button-text { 
+    border-bottom: 1px solid;
 }
 
 .elementor-button-text {
@@ -269,7 +276,7 @@
             <h6 class="upcoming-events-header"> PAST EVENTS </h6> 
             <div class="elementor-widget-container">
                 <div class="elementor-button-wrapper">
-                    <a href="#" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+                    <a href="/things-to-do" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                         <span class="elementor-button-content-wrapper">
                             <span class="elementor-button-icon elementor-align-icon-right">
                                 <i aria-hidden="true" class="fas fa-arrow-right"></i>
