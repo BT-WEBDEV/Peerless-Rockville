@@ -35,7 +35,7 @@
 
 .featured-product-title {
     text-align: center; 
-    font-size: 25px; 
+    font-size: 18px; 
     padding-left: 25px; 
     padding-right: 25px; 
 }
@@ -51,7 +51,7 @@
 
 .featured-product-price {
     text-align: center; 
-    font-size: 40px; 
+    font-size: 22px; 
     font-weight: bold; 
 }
 

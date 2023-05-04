@@ -1,7 +1,7 @@
 <style> 
 .events-wrapper {
     display: grid;
-    grid-template-columns: repeat(3,1fr); 
+    grid-template-columns: repeat(4,1fr); 
     grid-column-gap: 40px;
     grid-row-gap: 20px;   
 }
@@ -10,7 +10,7 @@
     display: flex; 
     flex-direction: column; 
     background-color: white; 
-    max-width: 547px; 
+    /* max-width: 547px;  */
     padding-bottom: 20px;
 }
 
@@ -33,18 +33,18 @@
 
 
 .event-image {
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 .event-headline {
-    font-size: 22px;
+    font-size: 16px;
     padding-left: 20px; 
     padding-right: 20px;  
 }
 
 .event-title {
     font-family: 'Open Sans', sans-serif;
-    font-size: 35px; 
+    font-size: 18px; 
     font-weight: bold;  
     padding-left: 20px; 
     padding-right: 20px; 
@@ -58,9 +58,10 @@
 
 .full-date-time {
     padding-left: 20px; 
-    padding-right: 20px; 
+    /* padding-right: 20px;  */
     max-width: 75%; 
-    font-size: 20px; 
+    font-size: 16px; 
+    color: #000000; 
 }
 
 .full-date-time:hover {
@@ -106,7 +107,7 @@
 }
 
 /* TABLET */ 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
     .events-wrapper {
         grid-template-columns: repeat(2,1fr);
     }
@@ -120,7 +121,7 @@
     }
 
     .full-date-time {
-        font-size: 12px; 
+        font-size: 12px !important; 
     }
 
     .event-post .elementor-button {
@@ -158,7 +159,7 @@
             'post_status' => 'publish',
             'orderby' => 'date',
             'order' => 'DESC',
-            'posts_per_page' => 3,
+            'posts_per_page' => 4,
             'category__not_in' => 24,
         );
 

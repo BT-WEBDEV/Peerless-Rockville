@@ -154,7 +154,7 @@
     border-width: 1px 1px 1px 1px;
     border-color: #587045; 
     border-radius: 0px 0px 0px 0px;
-    padding: 39px 39px 39px 39px;
+    padding: 20px 40px 20px 40px;
 }
 
 .new-releases-read-more-container .elementor-button:hover {

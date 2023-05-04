@@ -21,7 +21,7 @@
 
 .upcoming-events-header {
     margin-bottom: 0px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;  
     color: #587045;  
 } 
@@ -121,11 +121,11 @@
 }
 
 .full-date-time {
-    font-size: 18px;
+    font-size: 16px;
     text-align: right;  
     padding-left: 20px; 
     padding-right: 20px; 
-    color: #898681; 
+    color: #000000; 
     float: right; 
 }
 
@@ -171,7 +171,7 @@
 
 .past-events-header {
     margin-bottom: 0px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;  
     color: #587045;
 }
@@ -284,7 +284,7 @@
 
         <div class="heading-wrapper"> 
             <h6 class="upcoming-events-header"> UPCOMING EVENTS </h6> 
-            <div class="elementor-widget-container">
+            <!-- <div class="elementor-widget-container">
                 <div class="elementor-button-wrapper">
                     <a href="#" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                         <span class="elementor-button-content-wrapper">
@@ -295,7 +295,7 @@
                         </span>
                     </a>
                 </div>
-            </div>
+            </div> --> 
         </div>
 
         <div class="container">
@@ -359,7 +359,7 @@
         
         <div class="heading-wrapper"> 
             <h6 class="past-events-header"> PAST EVENTS </h6> 
-            <div class="elementor-widget-container">
+            <!-- <div class="elementor-widget-container">
                 <div class="elementor-button-wrapper">
                     <a href="#" class="elementor-button-link elementor-button elementor-size-sm" role="button">
                         <span class="elementor-button-content-wrapper">
@@ -370,7 +370,7 @@
                         </span>
                     </a>
                 </div>
-            </div>
+            </div> --> 
         </div>
         <div class="container"> 
             <div class="past-events-wrapper">

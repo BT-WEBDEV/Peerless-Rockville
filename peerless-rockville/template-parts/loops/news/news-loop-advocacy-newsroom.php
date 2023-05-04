@@ -96,7 +96,7 @@
     border-width: 1px 1px 1px 1px;
     border-color: var( --e-global-color-491d13d );
     border-radius: 0px 0px 0px 0px;
-    padding: 39px 39px 39px 39px;
+    padding: 20px 40px 20px 40px;
 }
 
 .read-more-container .elementor-button:hover {

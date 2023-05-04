@@ -35,6 +35,7 @@
     font-family: 'Open Sans', sans-serif; 
     padding-left: 10px; 
     padding-right: 10px; 
+    font-size: 20px; 
 }
 
 .elementor-widget-container {
@@ -122,7 +123,7 @@
 
                 <div id="<?php echo get_the_ID() ?>" class="mx-0 news-post container">
                     <a href="<?php the_permalink()?>">
-                        <img class="img-fluid news-image" src="<?php echo (get_the_post_thumbnail_url($post->ID, 'large')) ? : get_template_directory_uri()."/images/placeholder.jpg"; ?>">
+                        <img class="img-fluid news-image" src="<?php echo (get_the_post_thumbnail_url($post->ID, 'large')) ? : get_template_directory_uri()."/images/placeholder-394x394.jpg"; ?>">
                     </a>
                     <a class="news-title-link" href="<?php the_permalink()?>"> 
                         <h4 class="news-title"> <?php echo the_title(); ?> </h4> 

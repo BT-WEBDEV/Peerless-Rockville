@@ -35,7 +35,7 @@
 
 .product-title {
     text-align: center; 
-    font-size: 25px; 
+    font-size: 18px; 
     padding-left: 25px; 
     padding-right: 25px; 
 }
@@ -51,7 +51,7 @@
 
 .product-price {
     text-align: center; 
-    font-size: 40px; 
+    font-size: 22px; 
     font-weight: bold; 
 }
 
@@ -71,7 +71,7 @@
     border-width: 1px 1px 1px 1px;
     border-color: var( --e-global-color-491d13d );
     border-radius: 0px 0px 0px 0px;
-    padding: 39px 39px 39px 39px;
+    padding: 20px 40px 20px 40px;
 }
 
 .read-more-container .elementor-button:hover {
