@@ -1,7 +1,7 @@
 <style> 
 .news-wrapper {
     display: grid;
-    grid-template-columns: repeat(3,1fr); 
+    grid-template-columns: repeat(4,1fr); 
     grid-column-gap: 20px;
     grid-row-gap: 20px;   
 }
@@ -21,6 +21,7 @@
 
 .news-post .news-title-link {
     color: black; 
+    font-size: 18px; 
 }
 
 .news-post .news-title-link:hover {
@@ -30,7 +31,8 @@
 .news-post .news-excerpt-link {
     color: black; 
     padding-left: 10px; 
-    padding-right: 10px; 
+    padding-right: 10px;
+    font-size: 16px;  
 }
 
 .news-post .news-excerpt-link:hover {
@@ -171,7 +173,7 @@
             'orderby' => 'date',
             'order' => 'DESC',
             'category__in' => 27,
-            'posts_per_page' => 3,
+            'posts_per_page' => 4,
             'paged' => 1,
         );
 

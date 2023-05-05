@@ -1,7 +1,7 @@
 <style> 
 .events-wrapper {
     display: grid;
-    grid-template-columns: repeat(3,1fr); 
+    grid-template-columns: repeat(4,1fr); 
     grid-column-gap: 40px;
     grid-row-gap: 20px;   
 }
@@ -37,14 +37,14 @@
 }
 
 .event-headline {
-    font-size: 20px;
+    font-size: 16px;
     padding-left: 20px; 
     padding-right: 20px;  
 }
 
 .event-title {
     font-family: 'Open Sans', sans-serif;
-    font-size: 35px; 
+    font-size: 18px; 
     font-weight: bold;  
     padding-left: 20px; 
     padding-right: 20px; 
@@ -60,6 +60,7 @@
     padding-left: 20px; 
     padding-right: 20px; 
     max-width: 75%; 
+    font-size: 16px; 
 }
 
 .full-date-time:hover {

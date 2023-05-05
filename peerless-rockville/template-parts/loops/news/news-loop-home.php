@@ -35,7 +35,7 @@
     font-family: 'Open Sans', sans-serif; 
     padding-left: 10px; 
     padding-right: 10px; 
-    font-size: 20px; 
+    font-size: 18px; 
 }
 
 .elementor-widget-container {

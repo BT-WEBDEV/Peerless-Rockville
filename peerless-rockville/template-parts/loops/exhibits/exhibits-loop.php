@@ -17,14 +17,14 @@
 
 .exhibit-name {
     font-family: 'Open Sans', sans-serif;
-    font-size: 35px;
+    font-size: 20px;
     color: #587045; 
 }
 
 .exhibit-content-wrapper p{
     font-family: 'Open Sans', sans-serif;
     font-weight: 300; 
-    font-size: 25px; 
+    font-size: 18px; 
     color: #587045; 
 }
 

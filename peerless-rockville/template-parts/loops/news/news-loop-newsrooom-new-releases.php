@@ -70,7 +70,7 @@
 
 .news-post-date {
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;  
+    font-size: 16px;  
     color: #898681; 
     padding-left: 20px;
 }
@@ -131,7 +131,7 @@
 }
 
 .sidebar-post-title{
-    font-size: 20px; 
+    font-size: 18px; 
     color: black; 
 }
 .sidebar-post-title:hover {

@@ -109,7 +109,7 @@
 
 .event-title {
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;   
+    font-size: 18px;   
     padding-left: 20px; 
     padding-right: 20px; 
 }
