@@ -21,7 +21,7 @@
 
 .upcoming-events-header {
     margin-bottom: 0px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;  
     color: #587045;  
 } 
@@ -171,7 +171,7 @@
 
 .past-events-header {
     margin-bottom: 0px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;  
     color: #587045;
 }

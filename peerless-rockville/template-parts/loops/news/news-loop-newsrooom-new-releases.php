@@ -146,7 +146,7 @@
 }
 .new-releases-read-more-container .elementor-button {
     font-family: "Aleo", Sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     letter-spacing: 2.14px;
     background-color: #FFFFFF39;

@@ -30,7 +30,7 @@
 
 .exhibit-post .elementor-button {
     font-family: "Roboto", Sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-transform: uppercase;
     fill: var( --e-global-color-6e121aa );
@@ -54,7 +54,7 @@
 }
 .exhibits-read-more-container .elementor-button {
     font-family: "Aleo", Sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     letter-spacing: 2.14px;
     background-color: #FFFFFF39;
@@ -81,7 +81,7 @@
 
 /* MOBILE */ 
 @media only screen and (max-width: 425px){
-    
+
 }
 
 /* TABLET */ 
@@ -108,7 +108,7 @@
     }
 
     .exhibit-content-wrapper {
-        padding-left: 0px; 
+        padding-left: 0px !important; 
     }
 }
 

@@ -116,6 +116,7 @@
             'post_status' => 'publish',
             'orderby' => 'date',
             'order' => 'DESC',
+            'category__in' => 47,
             'posts_per_page' => 4,
         );
 

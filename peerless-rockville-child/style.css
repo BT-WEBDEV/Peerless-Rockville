@@ -33,11 +33,11 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 } 
 
 /* HEADER PRIMARY NAV STYLINGS */ 
-@media only screen and (max-width: 1608px) and (min-width: 1302px) {
+/* @media only screen and (max-width: 1608px) and (min-width: 1302px) {
     .nav-menu nav ul li a {
         font-size: 19px !important; 
     }
-}
+} */
 
 /***
 * class: .sticky-header
